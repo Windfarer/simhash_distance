@@ -14,7 +14,6 @@ const (
 	hammingDistance = segment - 1
 )
 
-
 type SimHashStore struct {
 	Hashs []*sync.Map
 }

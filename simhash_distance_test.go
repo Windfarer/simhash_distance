@@ -16,7 +16,7 @@ func TestSimHashStore_CheckSimHash(t *testing.T) {
 	s := NewSimHashStore()
 	var sampleHash uint64 = 4310046566681409340
 	s.AddSimHash(sampleHash)
-	hit, dupHash := s.CheckSimHash(sampleHash+3)
+	hit, dupHash := s.CheckSimHash(sampleHash + 3)
 	if hit != true {
 		t.Error("distance calculating failed")
 	}
@@ -24,7 +24,7 @@ func TestSimHashStore_CheckSimHash(t *testing.T) {
 		t.Error("get wrong simhash")
 	}
 
-	hit, dupHash = s.CheckSimHash(sampleHash+4)
+	hit, dupHash = s.CheckSimHash(sampleHash + 4)
 	if hit != false {
 		t.Error("should be false")
 	}
