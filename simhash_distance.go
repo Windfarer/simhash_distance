@@ -73,9 +73,7 @@ func (e *SimHashStore) CheckSimHash(simHash uint64) (hit bool, sh uint64) {
 func (e *SimHashStore) AddSimHash(simHash uint64) {
 	hashSegs := ConvertSimHashToHexStrSegs(simHash)
 	for i := 0; i < segment; i++ {
-		go func(i int) {
-			actual, _ := e.Hashs[i].LoadOrStore(hashSegs[i], list.New())
-			actual.(*list.List).Add(&simHash)
-		}(i)
+		actual, _ := e.Hashs[i].LoadOrStore(hashSegs[i], list.New())
+		actual.(*list.List).Add(&simHash)
 	}
 }
