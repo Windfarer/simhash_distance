@@ -54,10 +54,12 @@ func (e *SimHashStore) CheckSimHash(simHash uint64) (hit bool, sh uint64) {
 					log.Debug(val)
 					if bits.OnesCount64(simHash^*val) <= hammingDistance {
 						ch <- val
+						return
 					}
 				}
 			}
 			ch <- nil
+			return
 		}(i)
 	}
 
