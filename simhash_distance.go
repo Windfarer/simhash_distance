@@ -31,7 +31,7 @@ func ConvertSimHashToHexStrSegs(simHash uint64) (r []string) {
 	h := fmt.Sprintf("%016X", simHash)
 	segSize := 16 / segment
 	for i := 0; i < segment; i++ {
-		r = append(r, h[i:i+segSize])
+		r = append(r, h[i*segSize:i+segSize])
 	}
 	log.Debug(r)
 	return r
